@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Question;
 
 class User extends Authenticatable
 {
@@ -40,12 +41,5 @@ class User extends Authenticatable
     public function questions()
     {
         return $this->hasMany(Question::class);
-    }
-
-    public function setTitleAttribute($value)
-    {
-        $this->attributes['title'] = $value;
-        // Function to convert the string into slug format
-        $this->attributes['slug'] = str_slug($value);
     }
 }

@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+
 use App\User;
 
 class Question extends Model
@@ -12,5 +14,12 @@ class Question extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+     public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = $value;
+        // Function to convert the string into slug format
+        $this->attributes['slug'] = Str::slug($value);
     }
 }
