@@ -24,8 +24,8 @@
                                 <strong>{{ $question->votes }}</strong> {{ \Str::plural('vote', $question->votes) }}
                             </div>
                             <div class="status {{ $question->status }}">
-                                <strong>{{ $question->answers }}</strong>
-                                {{ \Str::plural('answer', $question->answers) }}
+                                <strong>{{ $question->answers_count }}</strong>
+                                {{ \Str::plural('answer', $question->answers_count) }}
                             </div>
                             <div class="view">
                                 {{ $question->views . \Str::plural('view', $question->views) }}
@@ -41,7 +41,8 @@
                                 </h3>
                                 <div class="ml-auto">
                                     @can('update', $question)
-                                    <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
+                                    <a href="{{ route('questions.edit', $question->id) }}"
+                                        class="btn btn-sm btn-outline-info">Edit</a>
                                     @endcan
                                     @can('delete', $question)
                                     <form class="form-delete" action="{{ route('questions.destroy', $question->id) }}"
