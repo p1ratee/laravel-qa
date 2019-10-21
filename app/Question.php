@@ -10,6 +10,8 @@ use App\Answer;
 
 class Question extends Model
 {
+    use VotableTrait;
+
     protected $fillable = ['title', 'body'];
     // questions belongs to user
     public function user()
@@ -80,20 +82,5 @@ class Question extends Model
     public function getFavoritesCountAttribute()
     {
         return $this->favorites->count();
-    }
-
-    public function votes()
-    {
-        return $this->morphToMany(User::class, 'votable');
-    }
-
-    public function upVotes()
-    {
-        return $this->votes()->wherePivot('vote', 1);
-    }
-
-    public function downVotes()
-    {
-        return $this->votes()->wherePivot('vote', -1);
     }
 }
