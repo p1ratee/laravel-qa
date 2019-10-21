@@ -17,7 +17,7 @@
                         <a title="I dont like this answer" class="vote-down off">
                             <i class="fas fa-caret-down fa-2x"></i>
                         </a>
-                        <a title="Mark this answer as best answer" class="vote-accept mt-2">
+                        <a title="Mark this answer as best answer" class="{{ $answer->status }} mt-2">
                             <i class="fas fa-check fa-2x"></i>
                             <span class="favorites-count">43</span>
                         </a>
@@ -32,7 +32,8 @@
                                         class="btn btn-sm btn-outline-info">Edit</a>
                                     @endcan
                                     @can('delete', $answer)
-                                    <form class="form-delete" action="{{ route('questions.answers.destroy', [$question->id, $answer->id]) }}"
+                                    <form class="form-delete"
+                                        action="{{ route('questions.answers.destroy', [$question->id, $answer->id]) }}"
                                         method="POST">
                                         @method("DELETE")
                                         @csrf
