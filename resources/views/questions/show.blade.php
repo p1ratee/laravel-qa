@@ -29,7 +29,7 @@
                                 <input type="hidden" name="vote" value="1">
                             </form>
                             <span class="votes-count">{{ $question->votes_count }}</span>
-                            <a title="I dont like this question" class="vote-down {{ Auth::guest() ? 'off' : '' }}" 
+                            <a title="I dont like this question" class="vote-down {{ Auth::guest() ? 'off' : '' }}"
                                 onclick="event.preventDefault(); document.getElementById('down-vote-question-{{ $question->id }}').submit()">
                                 <i class="fas fa-caret-down fa-2x"></i>
                             </a>
@@ -54,29 +54,27 @@
                         </div>
                         <div class="media-body">
                             {!! $question->body !!}
-                            <div class="float-right mt-5">
-                                <span class="text-muted">
-                                    Answered {{ $question->created_date }}
-                                </span>
-                                <div class="media mt-2">
-                                    <a href="{{ $question->user->url }}" class="pr-2">
-                                        <img src="{{ $question->user->avatar }}" alt="" />
-                                    </a>
-                                    <div class="media-body mt-1">
-                                        <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
-                                    </div>
+                            <div class="row">
+                                <div class="col-4"></div>
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                    @include('shared._author',
+                                    [
+                                    'model' => $question,
+                                    'label' => 'asked'
+                                    ])
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @include('answers._index', [
+            'answers' => $question->answers,
+            'answersCount' => $question->answers_count
+            ])
+            @include('answers._create')
         </div>
+      
     </div>
-    @include('answers._index', [
-    'answers' => $question->answers,
-    'answersCount' => $question->answers_count
-    ])
-    @include('answers._create')
-</div>
-@endsection
+    @endsection
