@@ -13,6 +13,9 @@ class Question extends Model
     use VotableTrait;
 
     protected $fillable = ['title', 'body'];
+
+    protected $appends = ['created_date'];
+
     // questions belongs to user
     public function user()
     {
