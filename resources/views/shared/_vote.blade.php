@@ -32,10 +32,8 @@ $formAction = "/".$firstUriSegment."/".$model->id."/vote";
         <input type="hidden" name="vote" value="-1">
     </form>
     @if ($model instanceOf App\Question)
-    <favorite-c :question="{{ $question }}"></favorite-c>
+    <favorite-c :question="{{ $model }}"></favorite-c>
     @elseif($model instanceof App\Answer)
-    @include('shared._accept',[
-    'model' => $model
-    ])
+    <accept-c :answer="{{ $model }}"></accept-c>
     @endif
 </div>

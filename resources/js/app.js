@@ -4,6 +4,7 @@ require('./fontawesome');
 window.Vue = require('vue')
 import Vue from 'vue'
 import VueIzitoast from 'vue-izitoast';
+import axios from 'axios';
 import 'izitoast/dist/css/iziToast.min.css';
 /**
  * The following block of code may be used to automatically register your
@@ -19,6 +20,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 Vue.component('user-info', require('./components/UserInfo.vue').default);
 Vue.component('answer-c', require('./components/Answer.vue').default);
 Vue.component('favorite-c', require('./components/Favorite.vue').default);
+Vue.component('accept-c', require('./components/Accept.vue').default);
 Vue.use(VueIzitoast)
 /**
  * Next, we will create a fresh Vue application instance and attach it to
