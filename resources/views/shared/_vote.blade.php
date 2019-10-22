@@ -35,7 +35,7 @@ $formAction = "/".$firstUriSegment."/".$model->id."/vote";
     @include('shared._favorite',[
     'model'=>$model
     ])
-    @elseif($mode instanceof App\Answer)
+    @elseif($model instanceof App\Answer)
     @include('shared._accept',[
     'model' => $model
     ])
