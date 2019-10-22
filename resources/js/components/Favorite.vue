@@ -50,9 +50,6 @@ export default {
     }
   },
   computed: {
-    signedIn() {
-      return window.Auth.signedIn;
-    },
     endpoint() {
       return `${this.id}/favorites`;
     },

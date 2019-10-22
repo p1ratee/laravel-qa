@@ -6,6 +6,7 @@ import Vue from 'vue'
 import VueIzitoast from 'vue-izitoast';
 import axios from 'axios';
 import 'izitoast/dist/css/iziToast.min.css';
+import Authorization from './authorization/authorize';
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -21,7 +22,9 @@ Vue.component('user-info', require('./components/UserInfo.vue').default);
 Vue.component('answer-c', require('./components/Answer.vue').default);
 Vue.component('favorite-c', require('./components/Favorite.vue').default);
 Vue.component('accept-c', require('./components/Accept.vue').default);
+
 Vue.use(VueIzitoast)
+Vue.use(Authorization)
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
