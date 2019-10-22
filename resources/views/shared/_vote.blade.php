@@ -9,12 +9,10 @@ $name = 'answer';
 $firstUriSegment = 'answers';
 @endphp
 @endif
-
 @php
-$formId = $name ."-".$model->id;
-$formAction = $firstUriSegment ."/". $model->id ."/vote";
+$formId = $name ."-". $model->id;
+$formAction = "/".$firstUriSegment."/".$model->id."/vote";
 @endphp
-
 <div class="d-flex flex-column vote-controls">
     <a title="This {{ $name }} is useful" class="vote-up {{ Auth::guest() ? 'off' : '' }}"
         onclick="event.preventDefault(); document.getElementById('up-vote-{{ $formId }}').submit();">
@@ -33,7 +31,6 @@ $formAction = $firstUriSegment ."/". $model->id ."/vote";
         @csrf
         <input type="hidden" name="vote" value="-1">
     </form>
-
     @if ($model instanceOf App\Question)
     @include('shared._favorite',[
     'model'=>$model
