@@ -1,3 +1,4 @@
+@if ($answersCount > 0)
 <div class="row mt-4">
     <div class="col-md-12">
         <div class="card">
@@ -44,7 +45,7 @@
                                 @endif
                                 @csrf
                             </form>
-                    </div>
+                        </div>
                     </div>
                     <div class="media-body">
                         {!! $answer->body_html !!}
@@ -82,3 +83,4 @@
         </div>
     </div>
 </div>
+@endif
