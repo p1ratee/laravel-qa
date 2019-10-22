@@ -3,6 +3,8 @@ require('./fontawesome');
 
 window.Vue = require('vue')
 import Vue from 'vue'
+import VueIzitoast from 'vue-izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -16,7 +18,7 @@ import Vue from 'vue'
 
 Vue.component('user-info', require('./components/UserInfo.vue').default);
 Vue.component('answer-c', require('./components/Answer.vue').default);
-
+Vue.use(VueIzitoast)
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
