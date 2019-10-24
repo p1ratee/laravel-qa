@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import eventBus from "../event-bus.js";
 export default {
   props: ["answer"],
   data() {
@@ -28,9 +29,14 @@ export default {
       id: this.answer.id
     };
   },
+  created () {
+    eventBus.$on('accepted', id => {
+      this.isBest = id === this.id;
+    });
+  },
   computed: {
     canAccept() {
-      return this.authorize('accept', this.answer);
+      return this.authorize("accept", this.answer);
     },
     accepted() {
       return !this.canAccept && this.isBest;
@@ -48,6 +54,8 @@ export default {
         });
         this.isBest = true;
       });
+      eventBus.$emit("accepted", this.id);
+      
     }
   }
 };
