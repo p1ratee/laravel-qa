@@ -6,6 +6,8 @@ export default {
             if (typeof policy == 'string' && typeof model == 'object') {
                 const user = window.Auth.user;
                 return policies.modify(user, model);
+                // return policies[policy](user, model); is the same 
+                // return policies['accept'](user, model);  with given policy
             }
         };
         Vue.prototype.signedIn = window.Auth.signedIn;

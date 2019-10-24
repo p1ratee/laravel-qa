@@ -20,8 +20,7 @@ import Authorization from './authorization/authorize';
 
 Vue.component('user-info', require('./components/UserInfo.vue').default);
 Vue.component('answer-c', require('./components/Answer.vue').default);
-Vue.component('favorite-c', require('./components/Favorite.vue').default);
-Vue.component('accept-c', require('./components/Accept.vue').default);
+Vue.component('vote-c', require('./components/Vote.vue').default);
 
 Vue.use(VueIzitoast)
 Vue.use(Authorization)

@@ -1,8 +1,6 @@
 <answer-c :answer="{{ $answer }}" inline-template>
     <div class="media post">
-        @include('shared._vote', [
-        'model'=>$answer
-        ])
+        <vote-c :model="{{ $answer }}" name="answer"></vote-c>
         <div class="media-body">
             <form v-if="editing" @submit.prevent="update">
                 <div class="form-group">
@@ -27,7 +25,8 @@
                 </div>
                 <div class="col-4"></div>
                 <div class="col-4 float-right">
-                    <user-info :model="{{ $answer }}" label="Answered"></user-info>
+                    <user-info :model="{{ $answer }}" label="Answered">
+                    </user-info>
                 </div>
             </div>
         </div>
