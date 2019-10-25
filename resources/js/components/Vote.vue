@@ -51,7 +51,7 @@ export default {
     },
     _vote(vote) {
       if (!this.signedIn) {
-        this.$toast.warning(`Please login to voe the ${this.name}`, "Warning", {
+        this.$toast.warning(`Please login to vote the ${this.name}`, "Warning", {
           timeout: 3000,
           position: "bottomLeft"
         });

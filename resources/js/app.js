@@ -21,6 +21,7 @@ import Authorization from './authorization/authorize';
 Vue.component('user-info', require('./components/UserInfo.vue').default);
 Vue.component('vote-c', require('./components/Vote.vue').default);
 Vue.component('answers', require('./components/Answers.vue').default);
+Vue.component('question', require('./components/Question.vue').default);
 
 Vue.use(VueIzitoast)
 Vue.use(Authorization)
@@ -33,3 +34,4 @@ Vue.use(Authorization)
 let app = new Vue({
     el: '#app',
 });
+
